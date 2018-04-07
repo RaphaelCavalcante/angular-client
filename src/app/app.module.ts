@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 
 
@@ -6,7 +7,8 @@ import { AppComponent } from './app.component';
 import { EmployeeComponent } from './views/employee/employee.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
-import { EmployeeListComponent } from './views/employee-list/employee-list.component';
+import { AppRoutingModule } from './app-routing.module';
+import { Http, HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import { EmployeeListComponent } from './views/employee-list/employee-list.compo
     AppComponent,
     EmployeeComponent,
     SidebarComponent,
-    EmployeeFormComponent,
-    EmployeeListComponent
+    EmployeeFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

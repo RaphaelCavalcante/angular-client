@@ -6,9 +6,9 @@ const BASE = "http://localhost:8000/api/";
 export const environment = {
   production: false,
 
-  EMPLOYEE: BASE + 'employee/',
-  POSITION: BASE + 'position/',
-  COMPANY: BASE + 'company/',
-  DEPARTMENT: BASE + 'department/'
+  EMPLOYEE: BASE + 'employee',
+  POSITION: BASE + 'position',
+  COMPANY: BASE + 'company',
+  DEPARTMENT: BASE + 'department'
   
 }
