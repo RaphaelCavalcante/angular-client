@@ -5,15 +5,15 @@ import { PositionService } from '../../services/posittion/position.service';
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
-  providers:[PositionService]
+  providers: [PositionService]
 })
 export class EmployeeComponent implements OnInit {
 
   constructor(private positionService: PositionService) { }
 
   ngOnInit() {
-    this.positionService.ping().subscribe(res=>{
-      console.log(res);
-    });
+    // this.positionService.ping().subscribe(res => {
+    //   console.log(res);
+    // });
   }
 }

@@ -9,7 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Http, HttpModule } from '@angular/http';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { Http, HttpModule } from '@angular/http';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

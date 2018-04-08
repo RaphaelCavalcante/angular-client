@@ -1,0 +1,22 @@
+.input-wrapper {
+    position: relative;
+}
+ 
+.input-wrapper:before {
+    content: "\f002";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #8b8b8b;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+input {
+  width: 100%;
+  padding-right: 30px;
+}
