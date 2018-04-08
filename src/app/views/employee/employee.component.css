@@ -1,3 +1,9 @@
+.nav {
+    background-color:#007BFF;
+}
+.nav-link {
+    color: white;
+}
 .input-wrapper {
     position: relative;
 }

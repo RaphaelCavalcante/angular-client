@@ -1,19 +1,21 @@
 <section class="container-header">
-  HEADER
+  <br>
+  <div class="text-center">
+    Controle de Pessoal - DIGIBOARD
+  </div>
+
 </section>
+<br>
 <section class="container">
   <div class="row">
     <div class="col-md-10">
       <div class="input-wrapper">
-        <input class="form-control" type="text">
+        <input class="form-control" type="text" placeholder="Buscar">
       </div>
-      <!-- <button>
-        <i class="fa fa-search"></i>
-      </button> -->
     </div>
     <div class="col-md-2">
       <select class="custom-select">
-        <option value="-1">Selectionar</option>
+        <option value="" disabled>Filtar por:</option>
         <option value="0">Nome</option>
         <option value="1">Email</option>
         <option value="2">Telefone</option>
@@ -23,10 +25,116 @@
       </select>
     </div>
   </div>
+  <br>
   <div class="row">
-
-  </div>
-  <div class="row">
-    button
+    <div class="col-md-12">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="col-xm-2">#</th>
+            <th scope="col" class="col-xm-2">Nome</th>
+            <th scope="col" class="col-xm-2">Email</th>
+            <th scope="col" class="col-xm-2">Telefone</th>
+            <th scope="col" class="col-xm-2">Empresa</th>
+            <th scope="col" class="col-xm-2">Setor</th>
+            <th scope="col" class="col-xm-2">Cargo</th>
+            <th scope="col" class="col-xm-1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Mark@test.com</td>
+            <td>(12)345-6789</td>
+            <td>Test Company</td>
+            <td>Test</td>
+            <td>Test Operator</td>
+            <td>
+              <div class="row">
+                <div class="col-1">
+                  <i class="fa fa-eye"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-trash"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-pencil"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Mark</td>
+            <td>Mark@test.com</td>
+            <td>(12)345-6789</td>
+            <td>Test Company</td>
+            <td>Test</td>
+            <td>Test Operator</td>
+            <td>
+              <div class="row">
+                <div class="col-1">
+                  <i class="fa fa-eye"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-trash"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-pencil"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Mark</td>
+            <td>Mark@test.com</td>
+            <td>(12)345-6789</td>
+            <td>Test Company</td>
+            <td>Test</td>
+            <td>Test Operator</td>
+            <td>
+              <div class="row">
+                <div class="col-1">
+                  <i class="fa fa-eye"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-trash"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-pencil"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Mark</td>
+            <td>Mark@test.com</td>
+            <td>(12)345-6789</td>
+            <td>Test Company</td>
+            <td>Test</td>
+            <td>Test Operator</td>
+            <td>
+              <div class="row">
+                <div class="col-1">
+                  <i class="fa fa-eye"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-trash"></i>
+                </div>
+                <div class="col-1">
+                  <i class="fa fa-pencil"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <caption class="float-right">
+        <button class="btn btn-primary" (click)="addNew()"> Adicionar Novo </button>
+      </caption>
+    </div>
   </div>
 </section>

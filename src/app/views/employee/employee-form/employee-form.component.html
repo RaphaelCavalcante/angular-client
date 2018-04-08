@@ -1,0 +1,74 @@
+<section class="container-header">
+
+</section>
+<section class="container">
+  <form class="form-group col-md-12" [formGroup]="eForm" (ngSubmit)="saveEmployee()">
+    <div class="row">
+      <label for="employee-name" class="col-sm-2">
+        Nome:
+      </label>
+      <input id="employee-name" [formControlName]="employeeName" class="form-control col-md-10" type="text" required>
+      <div [hidden]="employeeName.valid || employeeName.pristine" class="alert alert-danger">
+        Nome é obrigatório
+      </div>
+    </div>
+    <div class="row">
+      <label for="employee-email" class="col-sm-2">
+        E-mail:
+      </label>
+      <input id="employee-email" [formControlName]="employeeEmail" class="form-control col-md-10" type="email" required>
+      <div [hidden]="employeeEmail.valid || employeeEmail.pristine" class="alert alert-danger">
+        Email é obrigatório
+      </div>
+    </div>
+    <div class="row">
+      <label for="employee-phone" class="col-sm-2">
+        Telefone:
+      </label>
+      <input id="employee-phone" [formControlName]="employeePhone" class="form-control col-md-10" type="tel" required>
+    </div>
+    <div class="row">
+      <label for="select-company" class="col-sm-2">
+        Empregador:
+      </label>
+      <select id="select-company" [formControlName]="company" (change)="enableNext(2)" required>
+        <option value="" disabled>Empresa: </option>
+        <option *ngFor="let i of [1..5]" [value]="i">Empresa {{i}}</option>
+      </select>
+      <div [hidden]="company.valid || company.pristine" class="alert alert-danger">
+        Empregador é obrigatório
+      </div>
+    </div>
+    <!-- <div class="row" *ngIf="hasCompany" -->
+    <div class="row">
+      <label for="select-department" class="col-sm-2">
+        Setor:
+      </label>
+      <select id="select-department" [formControlName]="department" (change)="enableNext(3)" required>
+        <option value="" disabled>Selecione o Setor: </option>
+        <option *ngFor="let i of [1..5]" [value]="i">Setor {{i}}</option>
+      </select>
+      <div [hidden]="department.valid || department.pristine" class="alert alert-danger">
+        Setor é obrigatório
+      </div>
+    </div>
+    <!-- <div class="row" *ngIf="hasDepartment"-->
+    <div class="row">
+      <label for="select-position" class="col-sm-2">
+        Cargo:
+      </label>
+      <select id="select-position" [formControlName]="position" required>
+        <option value="" disabled>Selecione o Cargo: </option>
+        <option *ngFor="let i of [1..5]" [value]="i">Cargo {{i}}</option>
+      </select>
+      <div [hidden]="position.valid || position.pristine" class="alert alert-danger">
+        Cargo é obrigatório
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="float-right" type="submit">Adicionar Novo</button>
+      </div>
+    </div>
+  </form>
+</section>
