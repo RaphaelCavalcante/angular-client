@@ -5,19 +5,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './views/employee/employee.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeFormComponent } from './views/employee/employee-form/employee-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Http, HttpModule } from '@angular/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeViewComponent } from './views/employee/employee-view/employee-view.component';
+import { DepartmentsComponent } from './views/departments/departments.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    SidebarComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    EmployeeViewComponent,
+    DepartmentsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,13 @@
-<section class="container-header">
-  <br>
-  <div class="text-center">
-    Controle de Pessoal - DIGIBOARD
-  </div>
-</section>
+<div class="text-center">
+  <h3 style="font-weight: bolder">Controle de Pessoal</h3>
+</div>
 <br>
 <section class="container">
   <div class="row" style="margin-left:50px">
     <div class="col-xm-2">
       <select class="custom-select" (change)=setFilter($event.target.value)>
         <option value="" disabled>Filtar por:</option>
-        <option value="0" >Nome</option>
+        <option value="0">Nome</option>
         <option value="1">Email</option>
         <option value="2">Telefone</option>
         <option value="3">Empresa</option>
@@ -82,21 +79,20 @@
       <div *ngIf="filteredArray.length == 0 && hasEmployees" class="empty-list">
         <h4>A busca não obteve nenhum resultado.</h4>
       </div>
-      <caption class="float-right">
-
-      </caption>
     </div>
   </div>
 </section>
 
 <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+  <div class="modal-header" style="border-bottom:none;">
+    <!-- <div class=""> -->
+    <i style="margin-left: 50%; color: red; font-size: 2em" class="fa fa-exclamation"></i>
+
+    <!-- </div> -->
   </div>
   <div class="modal-body">
-    <p>O usuário será removido, prosseguir?</p>
+
+    <p class="text-center">O usuário será removido, prosseguir?</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" (click)="d('dismiss')"> Cancelar</button>

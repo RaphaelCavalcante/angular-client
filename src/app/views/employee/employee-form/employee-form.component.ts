@@ -17,10 +17,12 @@ export class EmployeeFormComponent implements OnInit {
   private hasCompany = false;
   private hasDepartment = false;
   private hasPosition = false;
-
+  private hasData = false;
+  private isEdit = false;
   private companies = new Array();
   private departments = new Array();
   private positions = new Array();
+  private employeeId;
 
   constructor(
     private router: Router,
@@ -57,24 +59,71 @@ export class EmployeeFormComponent implements OnInit {
     return this.eForm.get('position');
   }
   ngOnInit() {
-    this.activatedRoute.url.subscribe((url)=>{
-      console.log(url);
+    this.activatedRoute.url.subscribe((url) => {
+      if (url[0].path === "edit") {
+        this.fillData(+url[1].path);
+        this.isEdit = true;
+      }
+
     });
     this.companyService.findAll().subscribe(companies => {
       this.companies = companies;
       this.hasCompany = true;
     });
   }
+  fillData(id: number) {
+    this.employeeService.findCompleteEmployee(id).subscribe(employee => {
+      console.log(employee);
+      employee.forEach(emp => {
+        this.employeeId = id;
+        this.employeeName.setValue(emp.employee_name);
+        this.employeeEmail.setValue(emp.employee_email);
+        this.employeePhone.setValue(emp.employees_phone);
+        this.company.setValue(emp.company_name);
+        this.department.setValue(emp.department_name);
+        this.position.setValue(emp.positions_name);
+
+        this.hasCompany = true;
+        this.companyService.findAllDepartmentFromCompany(emp.company_id)
+          .subscribe(departments => {
+            this.departments = departments
+            this.hasDepartment = true;
+          });
+        this.departmentService.findAllPositionsFromDepartment(emp.department_id).subscribe(positions => {
+          this.positions = positions;
+          this.hasPosition = true;
+        })
+      });
+    });
+  }
   saveEmployee(data) {
+    let positionId = -1;
+    if(this.isEdit){
+      positionId = (this.positions.filter(item => {
+        if(item.name === data.value.position) {
+          return true;
+        }
+      }))[0].id;
+    }else{
+      positionId = data.value.position;
+    }
+    
     const employee: Employee = new Employee(
       data.value.employeeName,
       data.value.employeePhone,
       data.value.employeeEmail,
-      data.value.position,
+      positionId,
     );
-    this.employeeService.saveEmployee(employee).subscribe(success => {
-      console.log(success);
-    }, error => console.log(error));
+    if(this.isEdit) {
+      employee.id = this.employeeId;
+      this.employeeService.updateEmployee(employee).subscribe(success => {
+        console.log(success);
+      }, error => console.log(error));
+    } else {
+      this.employeeService.saveEmployee(employee).subscribe(success => {
+        console.log(success);
+      }, error => console.log(error));
+    }
   }
 
   enableNext(nextId, next) {

@@ -32,14 +32,11 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.employeeService.findAllEmployee().subscribe(employees => {
-      // this.employees = employees;
       employees.forEach(employee => {
         this.employees.push({ employee: employee, filtered: false });
         this.filteredArray = this.employees;
-      })
-
+      });
       this.hasEmployees = true;
-
     });
   }
   private addNew() {
@@ -50,8 +47,10 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.deleteEmployee(employeeId).subscribe(() => {
         this.zone.run(() => {
           this.employeeService.findAllEmployee().subscribe(response => {
+            this.employees = new Array();
             response.forEach(res => {
               this.employees.push({ employee: res, filtered: false });
+              this.filteredArray=this.employees;
               this.hasEmployees = true;
             })
           });

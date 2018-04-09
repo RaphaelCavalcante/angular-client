@@ -13,4 +13,8 @@ export class PositionService extends BaseService {
   public ping() {
     return this.get(this.url);
   }
+  public findAllEmployeesOnPosition(positionId){
+    const requestUrl = `${this.url}/employees/${positionId}`;
+    return this.get(requestUrl);
+  }
 }

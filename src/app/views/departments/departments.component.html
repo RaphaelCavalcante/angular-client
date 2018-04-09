@@ -1,0 +1,45 @@
+<div class="text-center">
+  <h3 style="font-weight: bolder">Número de Pessoas Por cargo</h3>
+</div>
+<br>
+<section class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <label for="company">Empresa:</label>
+      <select id="company" class="custom-select" (change)="next($event.target.value)">
+        <option value="" disabled>Selecionar</option>
+        <option *ngFor="let company of companies" [value]="company.id">{{company.name}}</option>
+      </select>
+    </div>
+    <div class="col-xm-2" *ngIf="hasDepartment" >
+      <label for="department">
+        Departamento:
+      </label>
+      <select id="department" class="custom-select" (change)="displayPositions($event.target.value)">
+        <option value="" disabled>Selecionar</option>
+        <option *ngFor="let department of departments" [value]="department.id">{{department.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="col-xm-2">#</th>
+            <th scope="col" class="col-xm-2">Cargo</th>
+            <th scope="col" class="col-xm-2">Nº Pessoas</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="hasPosition">
+          <tr *ngFor="let item of positionPerson">
+            <td>{{item.position.id}}</td>
+            <th>{{item.position.name}}</th>
+            <td>{{item.employees}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

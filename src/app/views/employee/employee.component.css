@@ -1,8 +1,8 @@
-.nav {
-    background-color:#007BFF;
-}
 .nav-link {
-    color: white;
+    color:#007BFF;
+}
+.navbar-dark .nav-brand {
+    color: #fff;
 }
 .input-wrapper {
     position: relative;
