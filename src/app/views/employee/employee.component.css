@@ -26,3 +26,29 @@ input {
   width: 100%;
   padding-right: 30px;
 }
+a :hover{
+    cursor:pointer;
+}
+#delete:hover{
+    color: rgba(248, 53, 53, 0.884);
+}
+#view:hover{
+    color:rgba(0, 123, 255, 0.664);
+}
+#edit:hover{
+    color: rgba(253, 160, 74, 0.74);
+}
+.filter{
+    list-style: none;
+}
+.filter-item{
+    display: inline-block;
+}
+.empty-list {
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}

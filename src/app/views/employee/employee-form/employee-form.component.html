@@ -33,35 +33,35 @@
           <label for="select-company" class="col-sm-2">
             Empregador:
           </label>
-          <select id="select-company" formControlName="company" (change)="enableNext(2)" required>
+          <select id="select-company" class="custom-select col-md-10" formControlName="company" (change)="enableNext($event.target.value, 'department')" required>
             <option value="" disabled>Empresa: </option>
-            <option *ngFor="let i of [1..5]" [value]="i">Empresa {{i}}</option>
+            <option *ngFor="let companyObj of companies; let i=index" [value]="companyObj.id">{{companyObj.name}}</option>
           </select>
           <div [hidden]="company.valid || company.pristine" class="alert alert-danger">
             Empregador é obrigatório
           </div>
         </div>
         <!-- <div class="row"> -->
-        <div class="row" *ngIf="hasCompany">
+        <div class="row" *ngIf="hasCompany && hasDepartment">
           <label for="select-department" class="col-sm-2">
             Setor:
           </label>
-          <select id="select-department" formControlName="department" (change)="enableNext(3)" required>
+          <select id="select-department" class="custom-select col-md-10" formControlName="department" (change)="enableNext($event.target.value, 'position')" required>
             <option value="" disabled>Selecione o Setor: </option>
-            <option *ngFor="let i of [1..5]" [value]="i">Setor {{i}}</option>
+            <option *ngFor="let departmentObj of departments" [value]="departmentObj.id">{{departmentObj.name}}</option>
           </select>
           <div [hidden]="department.valid || department.pristine" class="alert alert-danger">
             Setor é obrigatório
           </div>
         </div>
         <!-- <div class="row"> -->
-        <div class="row" *ngIf="hasDepartment">
+        <div class="row" *ngIf="hasDepartment && hasPosition">
           <label for="select-position" class="col-sm-2">
             Cargo:
           </label>
-          <select id="select-position" formControlName="position" required>
+          <select id="select-position" class="custom-select col-md-10" formControlName="position" required>
             <option value="" disabled>Selecione o Cargo: </option>
-            <option *ngFor="let i of [1..5]" [value]="i">Cargo {{i}}</option>
+            <option *ngFor="let positionObj of positions" [value]="positionObj.id">{{positionObj.name}}</option>
           </select>
           <div [hidden]="position.valid || position.pristine" class="alert alert-danger">
             Cargo é obrigatório

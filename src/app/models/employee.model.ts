@@ -4,13 +4,16 @@ export class Employee {
     name: string;
     phone_num: string;
     email: string;
-    position: Position;
+    position: number;
     constructor(
         private nameInput: string,
         private phoneInput: string,
         private emailInput: string,
-        private positionInput: Position
+        private positionInput: number
     ) {
-
+        this.name= nameInput;
+        this.phone_num = phoneInput;
+        this.email = this.emailInput;
+        this.position = this.positionInput;
     }
 }

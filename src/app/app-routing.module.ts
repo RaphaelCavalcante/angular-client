@@ -4,14 +4,20 @@ import { EmployeeComponent } from './views/employee/employee.component';
 import { EmployeeFormComponent } from './views/employee/employee-form/employee-form.component';
 const routes: Routes = [
     {
-        path:'', redirectTo: 'home', pathMatch: 'full'
+        path: '', redirectTo: 'home', pathMatch: 'full'
     },
     {
-        path:'home', component: EmployeeComponent
+        path: 'home', component: EmployeeComponent
     },
     {
-        path:'add', component: EmployeeFormComponent
-    }
+        path: 'add', component: EmployeeFormComponent
+    },
+    {
+        path: 'edit/:id', component: EmployeeFormComponent
+    },
+    // {
+    //     path: 'view/:id', component: EmployeeViewCompone
+    // }
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

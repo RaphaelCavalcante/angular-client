@@ -12,4 +12,8 @@ export class CompanyService extends BaseService {
   public findAll() {
     return this.get(this.url);
   }
+  public findAllDepartmentFromCompany(companyId){
+    return this.get(this.url+'/'+companyId+'/departments');
+  }
+
 }
